@@ -1,25 +1,54 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ChatBox from './components/ChatBox';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [chatBoxes, setChatBoxes] = useState([]);
+
+  const addChatBox = () => {
+    const id = chatBoxes.length + 1;
+    const newChatBoxes = [...chatBoxes, { id, messages: [] }];
+    setChatBoxes(newChatBoxes);
+  };
+
+  const sendMessage = (chatBoxId, messageText, file) => {
+    const newMessage = { sender: chatBoxId, text: messageText, file: null };
+
+    if (file) {
+      const fileURL = URL.createObjectURL(file);
+      newMessage.file = fileURL;
+    }
+
+    const updatedChatBoxes = chatBoxes.map((chatBox) => {
+      const updatedMessages = [...chatBox.messages, newMessage];
+      return { ...chatBox, messages: updatedMessages };
+    });
+    setChatBoxes(updatedChatBoxes);
+  };
+
+  const closeChatBox = (chatBoxId) => {
+    const updatedChatBoxes = chatBoxes.filter((chatBox) => chatBox.id !== chatBoxId);
+    setChatBoxes(updatedChatBoxes);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <button className="add-btn" onClick={addChatBox}>
+        Add Chat Box
+      </button>
+      <div className="chat-boxes">
+        {chatBoxes.map((chatBox) => (
+          <ChatBox
+            key={chatBox.id}
+            id={chatBox.id}
+            messages={chatBox.messages}
+            sendMessage={sendMessage}
+            closeChatBox={closeChatBox}
+          />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;

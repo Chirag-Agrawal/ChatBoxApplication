@@ -1,0 +1,124 @@
+.chat-box {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 450px;
+    margin-bottom: 10px;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .chat-box-header {
+    /* background-color: #f0f0f0; */
+    background: rgb(113,213,198);
+    background: linear-gradient(90deg, rgba(113,213,198,1) 6%, rgba(208,208,208,1) 100%, rgba(0,212,255,1) 100%);
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .close-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .chat-box-body {
+    padding: 8px;
+    height: 200px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
+  .message.self {
+    background-color: #eff6ff;
+    text-align: left;
+  }
+  
+  .message.other {
+    background-color: #f9f9f9;
+    text-align: right;
+  }
+  
+  .chat-box-footer {
+    display: flex;
+    padding: 8px;
+  }
+  
+  .message-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px;
+    width: 250px;
+  }
+  
+  /* .send-btn {
+    margin-left: 8px;
+  } */
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .add-btn {
+    margin-bottom: 10px;
+  }
+  
+  .chat-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .reply-info {
+    margin-top: 5px;
+    color: #666;
+  }
+
+  .file-btn {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .send-btn {
+    background-color: #2196f3;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  
+.message-input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+
+.file-input-container {
+  position: relative;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+  
