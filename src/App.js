@@ -3,14 +3,17 @@ import ChatBox from './components/ChatBox';
 import './App.css';
 
 const App = () => {
+  /* Use State Hook to maintain the chat boxes . */
   const [chatBoxes, setChatBoxes] = useState([]);
 
+  /* Function to add chat boxes.  */
   const addChatBox = () => {
     const id = chatBoxes.length + 1;
     const newChatBoxes = [...chatBoxes, { id, messages: [] }];
     setChatBoxes(newChatBoxes);
   };
 
+   /* Message objects to store messages .   */
   const sendMessage = (chatBoxId, messageText, file) => {
     const newMessage = { sender: chatBoxId, text: messageText, file: null };
 

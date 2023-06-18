@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ChatBox.css';
 
 const ChatBox = ({ id, messages, sendMessage, closeChatBox, handleFileUpload }) => {
+  /*  Use State hook to set input variable */
   const [inputValue, setInputValue] = useState('');
   const [file, setFile] = useState(null);
 
@@ -13,7 +14,8 @@ const ChatBox = ({ id, messages, sendMessage, closeChatBox, handleFileUpload }) 
     const uploadedFile = event.target.files[0];
     setFile(uploadedFile);
   };
-
+  
+  /* Message send by chat boxes get add in the message object defined in app.js file */
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
       sendMessage(id, inputValue, file);
